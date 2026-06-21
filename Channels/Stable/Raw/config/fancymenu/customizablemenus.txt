@@ -1,0 +1,17 @@
+type = customizablemenus
+
+net.minecraft.client.gui.screens.CreditsAndAttributionScreen {
+}
+
+net.minecraft.client.gui.screens.options.LanguageSelectScreen {
+}
+
+ru.marduk.nedologin.client.SetPasswordScreen {
+}
+
+de.keksuccino.drippyloadingscreen.customization.DrippyOverlayScreen {
+}
+
+net.minecraft.client.gui.screens.TitleScreen {
+}
+

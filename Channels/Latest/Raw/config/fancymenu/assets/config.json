@@ -1,0 +1,10 @@
+{
+  "interface_version": "0.0.1",
+
+  "complementary_shader_name": "ComplementaryReimagined_r5.8.1.zip",
+  "complementary_shader_url": "https://cdn.modrinth.com/data/HVnmMxH1/versions/yCCduG44/ComplementaryReimagined_r5.8.1.zip",
+  "complementary_shader_hash": "8dbb914ed233d6e8183ce34eb26beaab",
+  "solas_shader_name": "Solas%20Shader%20V3.6.zip",
+  "solas_shader_url": "https://cdn.modrinth.com/data/EpQFjzrQ/versions/g0PhnMJ1/Solas%20Shader%20V3.6.zip",
+  "solas_shader_hash": "5346494db593aac5da674b441cd86dd8"
+}
