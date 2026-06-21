@@ -1,0 +1,102 @@
+[pipePhysics]
+	#Enable gravity-driven fluid flow through pipes without a pump.
+	#Fluid will flow from a higher source to a lower sink based on height difference.
+	enableGravityFlow = true
+	#Pressure gained per block of height difference.
+	#Used by both gravity and pump networks. Lower values = longer drops needed for max flow.
+	#At default 3, a 7-block drop gives max flow (10 mB/t). Angle scales naturally via height.
+	# Default: 15.0
+	# Range: 0.1 ~ 100.0
+	gravityPressurePerBlock = 15.0
+	#Enable angle-based pipe friction scaling.
+	#When true, friction scales smoothly with pipe elevation angle on Sable sub-levels:
+	#  vertical = 0 friction, horizontal = full, angled = proportional (sin-based).
+	#When false, friction is binary: vertical pipes = 0, everything else = full.
+	enablePipeAnglePhysics = true
+	#Friction per horizontal pipe segment. Vertical = zero friction, angled = proportional.
+	#Higher values = shorter horizontal range from gravity flow.
+	#Set to 0 for frictionless pipes.
+	# Default: 5.0
+	# Range: 0.0 ~ 20.0
+	pipeFrictionPerBlock = 5.0
+	#Minimum pipe elevation angle (degrees) for gravity-assisted flow.
+	#Pipes steeper than this angle have zero friction — gravity drives the flow.
+	#Pipes below this angle ramp smoothly to full friction at 0° (flat).
+	#Lower values = shallower pipes can flow by gravity. 5 = nearly flat pipes work.
+	# Default: 5.0
+	# Range: 0.0 ~ 45.0
+	minGravityAngle = 5.0
+	#Maximum pressure in pipe networks. Transfer rate = pressure / 2 mB/t.
+	#Default 20 = max 10 mB/t. Applies to both gravity and pump+gravity combined.
+	# Default: 60.0
+	# Range: 1.0 ~ 256.0
+	maxGravityPressure = 60.0
+	#Enable gravity assist/penalty for pump networks.
+	#When true, pumps push further downhill and shorter uphill.
+	#When false, pumps behave like vanilla Create — uniform range regardless of direction.
+	enablePumpGravity = true
+	#How much gravity affects pump networks (when enablePumpGravity is true).
+	#1.0 = full physics, 0.5 = half effect, 2.0 = exaggerated.
+	# Default: 1.0
+	# Range: 0.0 ~ 2.0
+	pumpGravityFactor = 1.0
+	#How often (in ticks) to recheck gravity flow for pipes on sub-levels.
+	#Lower = more responsive to rotation, higher = less CPU.
+	#20 ticks = 1 second.
+	# Default: 5
+	# Range: 1 ~ 100
+	gravityRecheckTicks = 5
+	#Minimum rotation change (quaternion dot threshold) to trigger gravity recheck.
+	#Lower = more sensitive to small rotations. 0.999 = ~2.5 degrees, 0.99 = ~8 degrees.
+	# Default: 0.999
+	# Range: 0.9 ~ 1.0
+	gravityRotationThreshold = 0.999
+	#Minimum height difference (in blocks) for gravity flow to activate.
+	#Prevents phantom flow from floating point noise on nearly-flat pipes.
+	#Default 0.1 = pipes need at least 0.1 blocks of height drop to flow.
+	# Default: 0.1
+	# Range: 0.0 ~ 10.0
+	gravityDeadZone = 0.1
+	#Maximum horizontal range (in blocks) that gravity pressure can push fluid.
+	#A taller drop builds more pressure, but it caps at this many blocks of range.
+	#Range = accumulated pressure / friction per block, capped at this value.
+	# Default: 10
+	# Range: 1 ~ 256
+	maxGravityRange = 10
+	#Whether pipe friction reduces pump flow rate (not just range).
+	#When true, friction accumulates with diminishing returns (logarithmic),
+	#reducing the bottleneck pressure and thus flow rate for the whole network.
+	#When false, friction only limits range — all reachable pipes flow at RPM/2 (vanilla-like).
+	frictionAffectsFlow = true
+	#How much fluid viscosity affects pipe friction.
+	#0.0 = viscosity ignored (all fluids flow the same).
+	#1.0 = full effect (lava has 6x friction vs water).
+	#0.3 = softened (lava has ~2.5x friction vs water).
+	#Uses the fluid's viscosity from FluidType (water=1000, lava=6000).
+	# Default: 0.3
+	# Range: 0.0 ~ 2.0
+	viscosityScaling = 0.3
+
+[sableCompat]
+	#When an open-ended pipe on a Sable sub-level spills fluid,
+	#place the fluid block in the real world at the projected position.
+	#When disabled, fluid is placed inside the sub-level as vanilla Create does.
+	enableOpenEndWorldPlacement = true
+
+[tankMass]
+	#Enable dynamic mass for fluid tanks on Sable sub-levels.
+	#Fuller tanks become heavier, affecting sub-level physics (rotation, momentum).
+	#Requires Sable (full) to be installed — has no effect with only Sable Companion.
+	enableDynamicTankMass = true
+	#Mass in kg added per bucket (1000 mB) of fluid stored in a tank.
+	#Sable blocks weigh ~1 kg each. A single tank holds 8 buckets.
+	#At 0.1, a full single tank adds 0.8 kg (nearly doubling a 1-block tank's weight).
+	#At 1.0, a full single tank adds 8 kg (9x heavier — very aggressive).
+	# Default: 0.1
+	# Range: 0.001 ~ 100.0
+	fluidMassPerBucket = 0.1
+	#EXPERIMENTAL: Shift center of gravity based on fluid fill level.
+	#When enabled, fluid mass is added to Sable's mass tracker, affecting
+	#center of mass and rotational inertia. May cause instability.
+	#When disabled, fluid weight is applied as a simple downward force.
+	experimentalTankCenterOfGravity = true

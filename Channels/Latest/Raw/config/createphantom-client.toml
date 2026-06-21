@@ -1,0 +1,11 @@
+#.
+#Settings for the in-flight courier HUD.
+[hud]
+	#.
+	#Allowed Values: TOP_RIGHT, TOP_LEFT, HIDDEN
+	courierHudPlacement = "TOP_RIGHT"
+	#.
+	#Visual scale for the in-flight courier HUD.
+	# Default: 0.6499999761581421
+	# Range: 0.5 ~ 1.5
+	courierHudScale = 0.6499999761581421

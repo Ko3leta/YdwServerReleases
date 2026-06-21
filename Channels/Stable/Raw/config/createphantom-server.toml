@@ -1,0 +1,5 @@
+#.
+#Settings for phantom logistics.
+[logistics]
+	#.
+	allowCrossDimensionDelivery = true

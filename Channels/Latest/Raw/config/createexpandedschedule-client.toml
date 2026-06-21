@@ -1,0 +1,5 @@
+#Extra height added to the schedule window, in steps of 10 pixels.
+#Value 5 = 50px (default), 0 = original size, 20 = 200px max.
+# Default: 5
+# Range: 0 ~ 20
+extraHeight = 5

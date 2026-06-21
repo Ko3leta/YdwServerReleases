@@ -1,0 +1,29 @@
+[overlays]
+	#Show animated arrows along pipes when looking at a pump with goggles.
+	showPumpRangeArrows = true
+	#Arrow animation style. 0 = per-segment (arrow on every pipe, sliding in sync),
+	#1 = traveling (single arrow travels the full path from source to sink, faster).
+	# Default: 0
+	# Range: 0 ~ 1
+	arrowRenderMode = 0
+	#Show fluid transport info when looking at a pipe with goggles.
+	showPipeGoggleInfo = true
+	#Show detailed pressure breakdown (head, friction, net) in pipe goggle tooltips.
+	#When disabled, only shows flow rate and direction.
+	complexTooltips = true
+
+[fluidPhysics]
+	#Enable tilted fluid rendering in tanks on Sable sub-levels.
+	fluidTiltEnabled = true
+	#Enable wavy fluid surface mesh on Sable sub-levels.
+	#When disabled, the surface is a flat plane (less GPU cost).
+	fluidWaveMesh = true
+	#Grid resolution for the fluid surface mesh. Higher = smoother waves, more GPU cost.
+	#4 = low, 8 = medium, 16 = high, 32 = ultra. Only used when fluidWaveMesh is true.
+	# Default: 64
+	# Range: 2 ~ 128
+	fluidSurfaceResolution = 64
+	#Show debug wireframe, corner dots, and grid lines on fluid surfaces.
+	fluidDebugRender = false
+	#Hide fluid textures, showing only debug wireframe. Useful for inspecting the mesh.
+	fluidHideTexture = false

@@ -1,0 +1,169 @@
+#====================
+#Core Spacing
+#====================
+#Minimum spacing value used when no override matches.
+#In horizontal mode this is a chunk radius between structure starts.
+#In 3D mode this is converted to blocks using 16 blocks per chunk.
+# Default: 10
+# Range: 0 ~ 10000
+globalSpacingRadiusChunks = 10
+#
+#
+#
+#====================
+#Whitelisting
+#====================
+#Structure ids or wildcard patterns that should bypass Better Sparse Structures entirely.
+#Whitelisted structures are never blocked by this mod.
+#Whether they also count as blockers for other structures is controlled by countWhitelistedStructuresForSpacing.
+#Examples:
+#  "minecraft:*"
+#  "minecraft:pillager_outpost"
+#  "mystructures:ancient_*"
+whitelistedStructures = []
+#
+#
+#If true, whitelisted structures are still remembered as nearby blockers for other structures. They are still never blocked themselves.
+countWhitelistedStructuresForSpacing = false
+#
+#
+#Per-structure or per-namespace spacing overrides in the form "pattern=radius".
+#More specific matches win over broader ones. Later entries win ties.
+#Override values are in chunks, and in 3D mode each chunk is treated as 16 blocks.
+#Examples:
+#  "minecraft:* = 24"
+#  "minecraft:pillager_outpost = 80"
+#  "mystructures:ancient_* = 128"
+spacingRadiusOverrides = []
+#
+#
+#
+#====================
+#Size Scaling
+#====================
+#If true, spacing is scaled by realized structure size.
+#The size score uses the hybrid formula footprint * sqrt(height).
+#Small structures shrink spacing, large structures expand it.
+enableSizeScaledSpacing = true
+#
+#
+#The hybrid size score that counts as the smallest structure for size-scaled spacing.
+# Default: 10.0
+# Range: 0.0 ~ 1.0E12
+minimumSize = 10.0
+#
+#
+#The hybrid size score that counts as the largest structure for size-scaled spacing.
+# Default: 20000.0
+# Range: 0.0 ~ 1.0E12
+maximumSize = 20000.0
+#
+#
+#How strongly size scaling changes spacing.
+#A value of 10 means the smallest structures use 0.1x spacing, the midpoint uses 1x, and the largest use 10x.
+# Default: 5.0
+# Range: 1.0 ~ 1000.0
+distanceModifier = 5.0
+#
+#
+#
+#====================
+#Repetition Bias
+#====================
+#If true, repeated nearby structure ids and size classes build up pressure against generating the same kinds of structures again.
+#This helps large modpacks avoid the same small or repeated structures winning every time.
+#Whitelisted structures are still never blocked by this bias.
+enableRepetitionBias = true
+#
+#
+#How far Better Sparse Structures looks for recently accepted nearby structures when calculating repetition bias.
+#Higher values make the anti-repetition effect more regional.
+#In 3D mode this is converted to blocks using 16 blocks per chunk.
+# Default: 25
+# Range: 1 ~ 10000
+repetitionBiasRadiusChunks = 25
+#
+#
+#How strongly nearby accepted structures with the exact same structure id add repetition bias.
+#Higher values make repeated exact structures much more likely to be rejected.
+# Default: 1.75
+# Range: 0.0 ~ 100.0
+structureIdBiasWeight = 1.75
+#
+#
+#How strongly nearby accepted structures in the same size class add repetition bias.
+#This is usually weaker than structureIdBiasWeight so exact repeats matter more than just being similarly sized.
+# Default: 0.5
+# Range: 0.0 ~ 100.0
+sizeClassBiasWeight = 0.5
+#
+#
+#If a candidate's local repetition bias reaches this value, the structure is rejected.
+#Lower values are stricter. Higher values allow more repeats before rejection.
+# Default: 1.5
+# Range: 0.0 ~ 1000.0
+repetitionBiasThreshold = 1.5
+#
+#
+#
+#====================
+#First Occurrence Protection
+#====================
+#If true, structures that have never been accepted before get extra help to appear at least once.
+#This help gets stronger every time that structure fails to be accepted.
+#Once the configured failure limit is reached, the structure is forced to be accepted unless it would overlap another structure.
+enableFirstOccurrenceProtection = true
+#
+#
+#How strongly unseen structures are helped on their very first attempts.
+#This multiplier is applied to spacing and repetition pressure.
+#Lower values make unseen structures easier to accept immediately.
+# Default: 0.75
+# Range: 0.01 ~ 1.0
+firstOccurrenceStartingPreferenceMultiplier = 0.75
+#
+#
+#How strong first-occurrence protection becomes right before forcing acceptance.
+#Lower values give never-before-seen structures much lighter spacing and repetition penalties.
+# Default: 0.15
+# Range: 0.0 ~ 1.0
+firstOccurrenceMinimumPreferenceMultiplier = 0.15
+#
+#
+#How many failed attempts a never-before-seen structure can have before Better Sparse Structures force-accepts it.
+#Overlap is still never allowed, even when forced.
+# Default: 8
+# Range: 1 ~ 100000
+firstOccurrenceForceAfterFailures = 8
+#
+#
+#
+#====================
+#Placement Rules
+#====================
+#If true, spacing is checked in 3D using full structure bounding boxes. Each spacing chunk is treated as 16 blocks.
+use3dBlockSpacing = true
+#
+#
+#If false, a new structure is rejected whenever its realized 3D bounding box overlaps any already-allowed structure, regardless of whitelisting.
+allowStructureOverlap = false
+#
+#
+#
+#====================
+#Debugging
+#====================
+#Sends server-side structure attempt debug markers to modded clients that support them.
+sendDebugStructureMarkers = true
+#
+#
+#Logs accepted, rejected, and whitelisted structure attempts at INFO level.
+logStructureAttempts = true
+#
+#
+#If greater than 0, individual structure attempt logs are replaced with one summary log every N attempts.
+#Example: 100 means Better Sparse Structures logs one running total summary after every 100 attempts.
+#Set to 0 to keep individual structure attempt logs.
+# Default: 100
+# Range: 0 ~ 100000
+structureAttemptSummaryInterval = 100

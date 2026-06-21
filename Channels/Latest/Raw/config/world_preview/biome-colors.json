@@ -1,0 +1,86 @@
+{
+  "iceandfire:dread_plain": {
+    "r": 90,
+    "g": 175,
+    "b": 199,
+    "cave": false
+  },
+  "create_submarine:abyss": {
+    "r": 214,
+    "g": 120,
+    "b": 13,
+    "cave": false
+  },
+  "terrablender:deferred_placeholder": {
+    "r": 250,
+    "g": 240,
+    "b": 234,
+    "cave": false
+  },
+  "iceandfire:dread_forest": {
+    "r": 222,
+    "g": 53,
+    "b": 157,
+    "cave": false
+  },
+  "wetland_whimsy:marsh": {
+    "r": 163,
+    "g": 173,
+    "b": 23,
+    "cave": false
+  },
+  "luminous_nether:fungal_plains": {
+    "r": 254,
+    "g": 13,
+    "b": 62,
+    "cave": false
+  },
+  "ars_nouveau:archwood_forest": {
+    "r": 8,
+    "g": 14,
+    "b": 159,
+    "cave": false
+  },
+  "luminous_nether:ash_forest": {
+    "r": 175,
+    "g": 16,
+    "b": 51,
+    "cave": false
+  },
+  "ars_elemental:blazing_forest": {
+    "r": 210,
+    "g": 255,
+    "b": 1,
+    "cave": false
+  },
+  "ars_elemental:cascading_forest": {
+    "r": 217,
+    "g": 41,
+    "b": 1,
+    "cave": false
+  },
+  "ars_elemental:flourishing_forest": {
+    "r": 250,
+    "g": 249,
+    "b": 227,
+    "cave": false
+  },
+  "ars_elemental:vexing_caves": {
+    "r": 211,
+    "g": 114,
+    "b": 184,
+    "cave": true
+  },
+  "ars_elemental:flashing_forest": {
+    "r": 251,
+    "g": 194,
+    "b": 132,
+    "cave": false
+  },
+  "ars_nouveau:jar": {
+    "r": 218,
+    "g": 251,
+    "b": 50,
+    "cave": false
+  }
+}

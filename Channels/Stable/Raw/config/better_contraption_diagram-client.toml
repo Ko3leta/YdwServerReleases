@@ -1,0 +1,40 @@
+#color of center of mass
+# Default: 7758157
+# Range: > 0
+centerOfMassColor = 7758157
+#color of target center of mass
+# Default: 7753037
+# Range: > 0
+expectedCenterOfMassColor = 7753037
+#color of force cords
+# Default: 5592405
+# Range: > 0
+forceCordsColor = 5592405
+#axis offset from (0,0,0)
+# Default: 0.2
+# Range: 0.0 ~ 1.0
+axisOffset = 0.2
+#axis scale
+# Default: 0.5
+# Range: 0.25 ~ 2.0
+axisScale = 0.5
+#max mass stack distance
+# Default: 20
+# Range: 1 ~ 1000
+maxMassStackIteration = 20
+#max mass stack distance
+# Default: 1000
+# Range: 1 ~ 100000
+maxFixDistance = 1000
+#center of mass tooltip view type with goggles
+#Allowed Values: NEVER, ALWAYS, SHIFT, F3, F3_OR_HITBOX, F3_SHIFT
+comViewTypeGoggle = "SHIFT"
+#center of mass box view type with goggles
+#Allowed Values: NEVER, ALWAYS, SHIFT, F3, F3_OR_HITBOX, F3_SHIFT
+comViewType = "F3_OR_HITBOX"
+#max amount of locally stored diagrams
+# Default: 1000
+# Range: 1 ~ 100000
+maxDiagramDataStoredPreLevel = 1000
+#Show warning(only once) when using grid mode when enabled Enhanced Diagrams 
+showWargingWhenGrid = true
