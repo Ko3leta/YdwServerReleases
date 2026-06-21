@@ -1,10 +1,10 @@
 {
   "stable_name": "YDWS-STABLE-0.1.zip",
   "stable_version": "0.1",
-  "stable_url": "",
+  "stable_url": "https://github.com/Ko3leta/YdwServerReleases/releases/download/STABLE/YDWS-STABLE-0.1.zip",
   "stable_hash": "13302f6b4313038df6e16032438aabe3",
   "latest_name": "YDWS-LATEST-0.1.zip",
   "latest_version": "0.1",
-  "latest_url": "",
+  "latest_url": "https://github.com/Ko3leta/YdwServerReleases/releases/download/LATEST/YDWS-LATEST-0.1.zip",
   "latest_hash": "13302f6b4313038df6e16032438aabe3"
 }
