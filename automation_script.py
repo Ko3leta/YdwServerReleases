@@ -46,9 +46,10 @@ def make_zip(source_dir, out_zip):
             arc = relpath(source_dir, file_path)
             z.write(file_path, arc)
 
-def update_index(channel, name, version, url, hashv):
+def update_index(channel, name, version, url, hashv, size_bytes):
     idx = load_index()
     idx[f"{channel}_name"] = name
+    idx[f"{channel}_size"] = size_bytes
     idx[f"{channel}_version"] = version
     idx[f"{channel}_url"] = url
     idx[f"{channel}_hash"] = hashv
@@ -69,12 +70,14 @@ def pack(channel):
     make_zip(base, zip_path)
 
     h = md5_file(zip_path)
+    size = os.path.getsize(zip_path)
 
-    update_index(channel, zip_name, version, "", h)
+    update_index(channel, zip_name, version, "", h, size)
 
     print("Done. Archive created:")
     print(zip_path)
     print("MD5:", h)
+    print("Size (bytes):", size)
 
 def build_map(base):
     result = {}
